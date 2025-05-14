@@ -20,7 +20,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_ROLE_NAME>
+          role-to-assume: arn:aws:iam::954976327276:role/OIDC
           aws-region: us-east-1
 
       - name: Login to Amazon ECR
@@ -41,13 +41,13 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ecs-task-definition.json
+          task-definition: container-definition.json
           container-name: springapp
           image: ${{ env.IMAGE_URI }}
 
       - name: Deploy ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          service: <YOUR_ECS_SERVICE_NAME>
-          cluster: <YOUR_ECS_CLUSTER_NAME>
+          service: springapp-service
+          cluster: springapp-cluster1
           task-definition: ${{ steps.task-def.outputs.task-definition }}
