@@ -51,3 +51,10 @@ jobs:
           service: springapp-service
           cluster: springapp-cluster1
           task-definition: ${{ steps.task-def.outputs.task-definition }}
+
+      - name: Force new ECS deployment
+        run: |
+          aws ecs update-service \
+            --cluster springapp-cluster1 \
+            --service springapp-service \
+            --force-new-deployment
