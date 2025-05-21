@@ -38,9 +38,8 @@ This project demonstrates how to build and deploy a simple Java Spring Boot appl
 
 ---
 
-## 📦 How to Build and Run Locally
+## 📦 How to Build and Run Locally\
 
-`
 # Clone the repository
 git clone https://github.com/your-username/springboot-ecs-deploy.git
 cd springboot-ecs-deploy
@@ -55,23 +54,32 @@ docker build -t springboot-ecs-app .
 docker run -p 8080:8080 springboot-ecs-app
 
  CI/CD with GitHub Actions
-
 This project uses GitHub Actions to automate the entire deployment pipeline:
-	•	On every push to main:
-	1.	Maven builds the .jar file
-	2.	Docker builds the image
-	3.	Pushes the image to AWS ECR
-	4.	Updates the ECS service to use the new image
+	•	On every push to main:	
+ 1.	Maven builds the .jar file
+	
+ 2.	Docker builds the image
+	
+ 3.	Pushes the image to AWS ECR
+
+ 4.	Updates the ECS service to use the new image
 
 📝 Check out the CI/CD pipeline config in .github/workflows/deploy.yml.
 
+
 What This Project Demonstrates
-	•	✅ CI/CD with GitHub Actions
-	•	🐳 Dockerizing a Java Spring Boot app
-	•	🚀 Deploying to AWS ECS Fargate
-	•	📦 Using AWS ECR as the container registry
-	•	🔐 Configuring IAM roles for secure GitHub → AWS access
-	•	💻 Running a production-like microservice in the cloud
+	
+ •	✅ CI/CD with GitHub Actions
+	
+ •	🐳 Dockerizing a Java Spring Boot app
+	
+ •	🚀 Deploying to AWS ECS Fargate
+
+ •	📦 Using AWS ECR as the container registry
+
+ •	🔐 Configuring IAM roles for secure GitHub → AWS access
+
+ •	💻 Running a production-like microservice in the cloud
 
  Author
 Jonathan Chijioke
